@@ -41,14 +41,17 @@ app.use(
 
 const isProd=config.NODE_ENV === "production";
 
+app.set("trust proxy", 1);
+
 app.use(
   session({
     name: "session",
     keys: [config.SESSION_SECRET],
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
-    secure: isProd,
+    secure: true,
     httpOnly: true,
-    sameSite: isProd ? "none" : "lax",
+    sameSite:"none",
+    proxy: true,
   })
 );
 
