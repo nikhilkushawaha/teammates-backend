@@ -51,7 +51,6 @@ app.use(
     secure: true,
     httpOnly: true,
     sameSite:"none",
-    proxy: true,
   })
 );
 
